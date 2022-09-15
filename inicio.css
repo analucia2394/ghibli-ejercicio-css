@@ -1,0 +1,317 @@
+/*mio*/
+/* Clase principal lo que se ponga aqui afecta a toda la pagina */
+
+*{
+    margin: 0;                              /* margin establece el margen de los cuatro 
+                                                lados. En este caso aplica a los 4 lados */
+    padding: 0;                            /* Espacio entre el contenido del elemento y su borde */
+    box-sizing: border-box;                /* Calcula en ancho y alto de un elemento */  
+    font-family: 'Poppins', sans-serif;
+    /*outline: 2px dashed navy;*/
+}
+
+/* Clase contenedor nos dara una sola medida para cada uno de los 
+apartados que se realicen */
+
+.contenedor{
+    width: 98%;
+    margin: auto;
+   
+}
+
+header{
+    color: white;                         /* Color de letra */
+    height: 50px;                           /* Ancho de separación */
+    background-color: crimson;               /* Color de fondo */ 
+    width: 100%;                            /* Ancho de la pantalla */
+    position: fixed;                        /* Como se agrega el elemento */
+    top: 0;                                 /* Alto */
+    left: 0;                                /* Izquierda */
+    z-index: 100;                           /* Indica el orden de un elemento y 
+                                                sus descendientes*/
+}
+
+h1{
+    float: left;                            /* Ubica un elemento al lado izquierdo de su 
+                                                contenedor*/
+}
+
+header .contenedor{
+    display: table;                         /*Display estable los tipos de visualización
+                                                interna y externa de un elemento, en este 
+                                                caso estaria forma de table con <table>*/
+}
+
+/* Barra de navegación */
+
+#menu-bar{
+    display: none;                          /* Desaparece la visualización de un elemento
+                                                para que no tenda efecto en el diseño */                        
+}
+
+header label{
+    float: right; 
+    font-size: 28px;                        /* Tamaño de la letra */
+    margin: 6px 0;                          /* margin establece el margen de los cuatro lados.
+                                                margin-right -> derecho
+                                                margin-left  -> izquierdo
+                                                margin-top   -> arriba
+                                                margin-bottom-> abajo
+                                                en este caso aplica ancho y alto */
+    cursor: pointer;                        /* agrega un cursor */
+}
+
+.menu{
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(220, 20, 60, 0.9);       /* Las primeras 3 posiciones indican el color en 
+                                                rgb y la última la transparencia */
+    transition: all 0.7s;                   /* Permite definir la transición entre dos estados
+                                                de un elemento
+                                                transition: nombre propiedad duración retardo
+                                                en este caso aplica que todas las propiedades
+                                                cambien */
+    transform: translateX(-100%);           /* Modifica el espacio de coordenadas de formato visual
+                                                los elementos pueder ser trasladados, rotados, escalados
+                                                o sesgados de acuerdo a los valores establecidos */
+}
+
+.menu a{
+    display: block;
+    color: #fff;
+    height: 50px;
+    text-decoration: none;                      /* Da formato de texto por ejemplo subrayado, tachado, etc */
+    padding: 15px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);      /* Crea un borde primera posición 
+                                                                    el ancho de del borde tipo y color */
+}
+
+.menu a:hover{
+    background: rgba(255, 255, 255, 0.3);       /* Cuando posiciones el cursor encima del 
+                                                        elemento se visualiza con el color que elijas
+                                                        nota: solo aplica la etiqueta a dentro de donde posicionaron
+                                                        la clase menu */
+}
+
+/* Botón barra de navegación */
+
+#menu-bar:checked ~ .menu{                          /* Cada que se da click al botón aparece la barra de navegación */
+    transform: translateX(0%);
+}
+
+/* Mostrar la barra de navegación en web */
+
+@media (min-width:1024px){
+    .menu{
+        position: static;
+        width: auto;
+        height: auto;
+        transform: translateX(0%);
+        float: right;
+        display: flex;
+    }
+
+    .menu a{
+        border: none;
+    }
+
+    header label{
+        display: none;
+    }
+}
+
+/* Baner */
+
+#baner {
+    margin-top: 50px;
+    position: relative;
+    /* width: 100%; */
+}
+
+#baner img{
+    width: 100%;
+    /* height: 100%; */
+}
+
+#baner .contenedor{
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    color: black;
+}
+
+#baner h2{
+    font-size: 30px;
+    padding-top: 5em;
+}
+
+#baner p{
+    font-size: 20px;
+}
+
+/* Secciones blanco */
+
+.blanco{
+    text-align: center;
+}
+
+.blanco a{
+    display: flex;
+    width: 45%;
+    color: black;
+    text-decoration: none;
+    padding: 1em;
+    margin-top: 5em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 3em;
+    border: 0.2em solid black;
+    font-size: 1em;
+    justify-content: center;
+}
+
+.blanco a:hover{
+    background: black;
+    color: white;
+}
+
+/* Creación de Columnas */
+
+.blancoC{
+    display: flex;                              /* El elemento se comporta como un elemento de bloque */
+    flex-direction: row;                        /* Establece cómo colocar los objetos en el contenedor
+                                                    flexible, en este caso esta definido en la dirección del texto */ 
+    flex-wrap: wrap;                            /* Especifica si los elementos hijos son obligados a permanecer en
+                                                    la misma línea */
+}
+
+/* Indica lo que medirá de ancho cada columna */
+
+.blancoC > div{
+    width: 50%;                                 /* En el ejemplo son 2, así que se divide en 50% */
+}
+
+/* Slider */
+
+.frame-slider{
+    width: 60vh;
+    height: 40vh;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1em;
+    margin-bottom: 5em;
+    overflow: hidden;                           /* Indica la visualización del contenido cuando se 
+                                                    hace más pequeña la vista en este caso el contenido
+                                                    es recortado y no se muestran barras de posición */
+    border: 6px solid;
+    border-color: black;
+}
+
+.frame-slider .contenedor{
+    display: flex;
+    justify-content: center;                    /* Define cómo el navegador distribuye el espacio entre y
+                                                    alrededor de los ítems flex, a lo largo del eje principal
+                                                    de su contenedor */
+    flex-wrap: wrap;
+}
+
+.frame-slider ul{
+    display: flex;
+    padding: 0;
+    width: 300%;
+    height: 100%;
+    animation: slide 5s infinite alternate;     /* Animación en el cuál podemos definir duración, ritmo, etc.
+                                                    En este caso con una duración de 5s y alternadamente n veces */
+}
+
+.frame-slider li{
+    list-style: none;
+    width: 100%;
+}
+
+.frame-slider img{
+    height: 100%;
+    width: 100%;
+}
+
+ul img{
+    height: 150px;
+    width: 150px;
+}
+
+/* Definen los fotogramas de la secuencia de animación, se establece un inicio y un fin
+para cada animación, estos se miden en % y van de 0 a 100% */
+
+@keyframes slide{
+    /* imagen1 */
+    0%{margin-left: 0%;}                    /* inicio */
+    30%{margin-left: 0%;}                   /* fin */
+    /* imagen2 */
+    35%{margin-left: -100%;}
+    65%{margin-left: -100%;}
+    /* imagen3 */
+    70%{margin-left: -200%;}
+    100%{margin-left: -200%;}    
+}
+
+.negro{
+    text-align: center;
+    background: crimson;
+    color: white;
+}
+
+.negro a{
+    display: flex;
+    width: 45%;
+    color: white;
+    text-decoration: none;
+    padding: 1em;
+    margin-top: 5em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 3em;
+    border: 0.2em solid white;
+    justify-content: center;
+}
+
+.negro a:hover{
+    background: white;
+    color: black;
+}
+
+.footer{
+    text-align: center;
+    background: pink;
+    color: black;
+    padding: 5em;
+    font-weight: bolder;
+}
+
+.footerC{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.footerC > div{
+    width: 33%;
+}
+
+.totoro img{
+    width: 100%;
+    height: 100%;
+}
+
+.kiki img{
+    width: 100%;
+    height: 100%;
+}
+
+.marnie img{
+    width: 100%;
+    height: 100%;
+}
